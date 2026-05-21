@@ -11,5 +11,5 @@ graph LR
     Player --- CreateChar
     Player --- AttackMonster
 
-    CreateChar -.->|"<<include>>"| CheckPlayer
-    AttackMonster -.->|"<<include>>"| CheckPlayer
+    CreateChar -.->|"&lt;&lt;include&gt;&gt;"| CheckPlayer
+    AttackMonster -.->|"&lt;&lt;include&gt;&gt;"| CheckPlayer
