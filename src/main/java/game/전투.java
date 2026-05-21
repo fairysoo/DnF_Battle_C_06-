@@ -16,9 +16,9 @@ public class 전투 {
 		}
     	
     	if(직업.equals("전사")) {
-			캐릭터 = new 전사(플레이어id, 캐릭터명, 레벨);
+			캐릭터 = new 전사(캐릭터명, 레벨);
 		} else if(직업.equals("마법사")) {
-			캐릭터 = new 마법사(플레이어id, 캐릭터명, 레벨);
+			캐릭터 = new 마법사(캐릭터명, 레벨);
 		} else {
 			System.out.println("존재하지 않는 직업입니다.");
 		}
