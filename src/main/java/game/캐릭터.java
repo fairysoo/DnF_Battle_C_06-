@@ -6,5 +6,5 @@ public abstract class 캐릭터 {
     public int hp;
     public int 공격력;
 
-    public abstract void 스킬발동();
+    public abstract String 스킬발동();
 }
