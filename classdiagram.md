@@ -17,8 +17,8 @@ classDiagram
     }
 
     class 전투 {
-        +플레이어: 플레이어
-        +캐릭터: 캐릭터
+        -플레이어: 플레이어
+        -캐릭터: 캐릭터
         +전투()
         +캐릭터생성(플레이어id: String, 캐릭터명: String, 레벨: int, 직업: String) boolean
         +몬스터공격(플레이어id: String) String

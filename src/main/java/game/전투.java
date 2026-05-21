@@ -2,8 +2,8 @@ package game;
 
 public class 전투 {
 	
-	플레이어 플레이어;
-	캐릭터 캐릭터;
+	private 플레이어 플레이어;
+	private 캐릭터 캐릭터;
 	
 	public 전투() {
 		플레이어 = new 플레이어();
