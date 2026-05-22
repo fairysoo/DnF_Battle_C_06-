@@ -11,13 +11,7 @@ public class 전사 extends 캐릭터 {
 		
 	}
     @Override
-    public String 스킬발동() {
-    	String 등급 = "";
-    	float 데미지 = (int)(공격력 * 1.5);
-    	if(데미지 >= 200) 등급 = "S";
-    	else if(데미지 >= 100) 등급 = "A";
-    	else 등급 = "B";
-    	
-        return "검 휘두르기! : " + 데미지 + "의 피해를 입힙니다! \n " + "공격 등급 : " + 등급;
+    public int 스킬발동() {
+    	 return (int)(공격력 * 1.5);
     }
 }
