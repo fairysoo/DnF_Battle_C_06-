@@ -30,17 +30,17 @@ classDiagram
         +레벨: int
         +hp: int
         +공격력: int
-        +스킬발동()* String
+        +스킬발동()* int
     }
 
     class 전사 {
         +전사(캐릭터명: String, 레벨: int)
-        +스킬발동() String
+        +스킬발동() int
     }
 
     class 마법사 {
         +마법사(캐릭터명: String, 레벨: int)
-        +스킬발동() String
+        +스킬발동() int
     }
 
     캐릭터 <|-- 전사
