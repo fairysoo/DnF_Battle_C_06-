@@ -7,24 +7,36 @@ sequenceDiagram
     participant Character as 캐릭터
 
     사용자->>UI: 선택_몬스터공격(플레이어id)
+    activate UI
+
     UI->>Battle: 몬스터공격(플레이어id)
+    activate Battle
 
     Battle->>Player: 플레이어체크(플레이어id)
+    activate Player
     Player-->>Battle: boolean 반환
+    deactivate Player
 
     alt 플레이어체크 실패 (false)
-        Battle-->>UI: null 반환 (플레이어 아이디가 일치하지 않습니다 출력)
+        Battle-->>UI: "플레이어 아이디가 일치하지 않습니다." 반환
     else 플레이어체크 성공 (true)
         Battle->>Character: 스킬발동()
-        
+        activate Character
+        Character-->>Battle: 데미지 int 반환
+        deactivate Character
+
         alt 데미지 >= 200
-            Character->>Character: 등급 = "S"
+            Battle->>Battle: 등급 = "S"
         else 데미지 >= 100
-            Character->>Character: 등급 = "A"
+            Battle->>Battle: 등급 = "A"
         else 데미지 < 100
-            Character->>Character: 등급 = "B"
+            Battle->>Battle: 등급 = "B"
         end
 
-        Character-->>Battle: 결과 문자열 반환 (데미지 및 등급 포함)
         Battle-->>UI: 결과 문자열 반환
     end
+
+    deactivate Battle
+
+    UI-->>사용자: 결과 화면 출력
+    deactivate UI
