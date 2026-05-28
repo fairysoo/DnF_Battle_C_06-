@@ -1,21 +1,22 @@
-<%@ page import="game.전투" %>
+<%@ page import="game.*" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%
     request.setCharacterEncoding("UTF-8");
 
-    String 결과메시지 = null;
+    전투 전투객체 = (전투) session.getAttribute("전투객체");
+
+    if (전투객체 == null) {
+        전투객체 = new 전투();
+        session.setAttribute("전투객체", 전투객체);
+    }
+
+    String 결과 = "";
 
     if ("POST".equalsIgnoreCase(request.getMethod())) {
         String 플레이어id = request.getParameter("플레이어id");
 
-        전투 전투객체 = (전투) session.getAttribute("전투객체");
-
-        if (전투객체 == null) {
-            결과메시지 = "전투 객체가 없습니다. 먼저 캐릭터를 생성하세요.";
-        } else {
-            결과메시지 = 전투객체.몬스터공격(플레이어id);
-        }
+        결과 = 전투객체.몬스터공격(플레이어id);
     }
 %>
 
@@ -23,32 +24,31 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Attack_monster_UI</title>
+    <title>몬스터 공격</title>
 </head>
 <body>
+    <h2>몬스터 공격</h2>
 
-<h2>Attack_monster_UI</h2>
+    <form method="post">
+        플레이어 ID: <input type="text" name="플레이어id"><br>
 
-<form action="attackMonster.jsp" method="post">
-    <p>
-        플레이어 ID:
-        <input type="text" name="플레이어id">
-    </p>
+        <button type="submit">몬스터 공격</button>
+    </form>
 
-    <button type="submit">몬스터 공격</button>
-</form>
+    <p><%= 결과 %></p>
 
-<%
-    if (결과메시지 != null) {
-%>
     <hr>
-    <p><%= 결과메시지 %></p>
-<%
-    }
-%>
 
-<br>
-<a href="createCharacter.jsp">캐릭터 생성 화면으로 이동</a>
+    <form action="getItem.jsp" method="get">
+        <button type="submit">아이템 획득으로 이동</button>
+    </form>
 
+    <form action="joinGuild.jsp" method="get">
+        <button type="submit">길드 가입으로 이동</button>
+    </form>
+
+    <form action="createCharacter.jsp" method="get">
+        <button type="submit">캐릭터 생성으로 이동</button>
+    </form>
 </body>
 </html>
