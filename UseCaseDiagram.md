@@ -15,7 +15,7 @@ graph LR
     Player --- AcquireItem
     Player --- JoinGuild
 
-    CreateChar -.->|"<<include>>"| CheckPlayer
-    AttackMonster -.->|"<<include>>"| CheckPlayer
-    AcquireItem -.->|"<<include>>"| CheckPlayer
-    JoinGuild -.->|"<<include>>"| CheckPlayer
+    CreateChar -.->|"\<\<include\>\>"| CheckPlayer
+    AttackMonster -.->|"\<\<include\>\>"| CheckPlayer
+    AcquireItem -.->|"\<\<include\>\>"| CheckPlayer
+    JoinGuild -.->|"\<\<include\>\>"| CheckPlayer
