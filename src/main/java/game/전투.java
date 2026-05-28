@@ -84,4 +84,12 @@ public class 전투 {
 
         return 캐릭터.캐릭터명 + "이(가) " + 길드.길드명 + " 길드에 가입했습니다.";
     }
+    
+    public boolean 플레이어체크(String 플레이어id) {
+        return 플레이어.플레이어체크(플레이어id);
+    }
+
+    public 캐릭터 get캐릭터() {
+        return 캐릭터;
+    }
 }
