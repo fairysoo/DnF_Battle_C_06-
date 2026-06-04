@@ -1,5 +1,6 @@
 ```mermaid
 sequenceDiagram
+    autonumber
     actor User as 플레이어
     participant UI as Join_Guild_UI
     participant GuildMap as 길드목록
