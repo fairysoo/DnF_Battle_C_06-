@@ -1,5 +1,6 @@
 ```mermaid
 sequenceDiagram
+    autonumber
     actor 사용자 as 플레이어
     participant UI as Add_Item_UI
     participant Battle as 전투
